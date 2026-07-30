@@ -57,13 +57,25 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-2 block text-sm font-medium text-navy-900">
+          <label
+            htmlFor="name"
+            className="mb-2 block text-sm font-medium text-navy-900"
+          >
             Your name
           </label>
-          <input id="name" name="name" required className={fieldClass} placeholder="Full name" />
+          <input
+            id="name"
+            name="name"
+            required
+            className={fieldClass}
+            placeholder="Full name"
+          />
         </div>
         <div>
-          <label htmlFor="email" className="mb-2 block text-sm font-medium text-navy-900">
+          <label
+            htmlFor="email"
+            className="mb-2 block text-sm font-medium text-navy-900"
+          >
             Email
           </label>
           <input
@@ -82,7 +94,8 @@ export default function ContactForm() {
           htmlFor="organisation"
           className="mb-2 block text-sm font-medium text-navy-900"
         >
-          School or organisation <span className="text-navy-800/65">(optional)</span>
+          School or organisation{" "}
+          <span className="text-navy-800/65">(optional)</span>
         </label>
         <input
           id="organisation"
@@ -93,10 +106,18 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="enquiry" className="mb-2 block text-sm font-medium text-navy-900">
+        <label
+          htmlFor="enquiry"
+          className="mb-2 block text-sm font-medium text-navy-900"
+        >
           What is this about?
         </label>
-        <select id="enquiry" name="enquiry" className={fieldClass} defaultValue={enquiryTypes[0]}>
+        <select
+          id="enquiry"
+          name="enquiry"
+          className={fieldClass}
+          defaultValue={enquiryTypes[0]}
+        >
           {enquiryTypes.map((type) => (
             <option key={type}>{type}</option>
           ))}
@@ -104,7 +125,10 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-2 block text-sm font-medium text-navy-900">
+        <label
+          htmlFor="message"
+          className="mb-2 block text-sm font-medium text-navy-900"
+        >
           Message
         </label>
         <textarea
@@ -125,7 +149,10 @@ export default function ContactForm() {
         <ArrowRight />
       </button>
 
-      <p aria-live="polite" className="text-xs leading-relaxed text-navy-800/70">
+      <p
+        aria-live="polite"
+        className="text-xs leading-relaxed text-navy-800/70"
+      >
         {sent
           ? `Your email client should now be open with the message ready to send to ${site.email}. If nothing happened, write to us directly at that address.`
           : `This opens your email app with the message pre-filled to ${site.email}.`}

@@ -126,9 +126,7 @@ export default function Footer() {
           <p>
             © {year} {site.name} · {site.location}
           </p>
-          <p>
-            A learning and empowerment initiative for children aged 5–17.
-          </p>
+          <p>A learning and empowerment initiative for children aged 5–17.</p>
         </div>
       </Container>
     </footer>

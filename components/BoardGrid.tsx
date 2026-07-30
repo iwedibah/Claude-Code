@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import Reveal from "@/components/Reveal";
+import Tilt from "@/components/motion/Tilt";
 import { board } from "@/lib/content";
 
 /**
@@ -20,41 +21,43 @@ export default function BoardGrid({
   return (
     <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {board.map((member, i) => (
-        <Reveal as="li" key={member.slug} delay={i * 70}>
-          <article
-            id={member.slug}
-            className="group flex h-full scroll-mt-28 flex-col overflow-hidden rounded-3xl border border-navy-900/8 bg-white shadow-[0_1px_2px_rgba(10,32,56,0.04),0_20px_45px_-30px_rgba(10,32,56,0.4)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(10,32,56,0.05),0_30px_60px_-32px_rgba(10,32,56,0.5)]"
-          >
-            <div className="relative aspect-4/5 overflow-hidden bg-navy-50">
-              <Image
-                src={member.photo}
-                alt={`${member.name}, ${member.role}`}
-                fill
-                sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
-                style={{ objectPosition: member.focus }}
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-              <span className="absolute top-4 left-4 rounded-full bg-white/90 px-3 py-1 text-[0.7rem] font-semibold tracking-wide text-navy-800 backdrop-blur-sm">
-                {member.country}
-              </span>
-            </div>
+        <Reveal as="li" key={member.slug} delay={i * 70} className="h-full">
+          <Tilt className="h-full rounded-3xl">
+            <article
+              id={member.slug}
+              className="group flex h-full scroll-mt-28 flex-col overflow-hidden rounded-3xl border border-navy-900/8 bg-white shadow-[0_1px_2px_rgba(10,32,56,0.04),0_20px_45px_-30px_rgba(10,32,56,0.4)] transition-shadow duration-300 hover:shadow-[0_1px_2px_rgba(10,32,56,0.05),0_30px_60px_-32px_rgba(10,32,56,0.5)]"
+            >
+              <div className="relative aspect-4/5 overflow-hidden bg-navy-50">
+                <Image
+                  src={member.photo}
+                  alt={`${member.name}, ${member.role}`}
+                  fill
+                  sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
+                  style={{ objectPosition: member.focus }}
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+                <span className="absolute top-4 left-4 rounded-full bg-white/90 px-3 py-1 text-[0.7rem] font-semibold tracking-wide text-navy-800 backdrop-blur-sm">
+                  {member.country}
+                </span>
+              </div>
 
-            <div className="flex flex-1 flex-col p-6">
-              <Heading className="font-display text-xl leading-snug font-semibold text-navy-900">
-                {member.name}
-              </Heading>
-              <p className="mt-1.5 text-sm font-semibold text-gold-600">
-                {member.role}
-              </p>
-              <p
-                className={`text-pretty mt-4 text-sm leading-relaxed text-navy-800/70 ${
-                  detailed ? "" : "line-clamp-4"
-                }`}
-              >
-                {member.bio}
-              </p>
-            </div>
-          </article>
+              <div className="flex flex-1 flex-col p-6">
+                <Heading className="font-display text-xl leading-snug font-semibold text-navy-900">
+                  {member.name}
+                </Heading>
+                <p className="mt-1.5 text-sm font-semibold text-gold-600">
+                  {member.role}
+                </p>
+                <p
+                  className={`text-pretty mt-4 text-sm leading-relaxed text-navy-800/70 ${
+                    detailed ? "" : "line-clamp-4"
+                  }`}
+                >
+                  {member.bio}
+                </p>
+              </div>
+            </article>
+          </Tilt>
         </Reveal>
       ))}
     </ul>

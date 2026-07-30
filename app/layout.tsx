@@ -3,6 +3,8 @@ import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import BackToTop from "@/components/motion/BackToTop";
+import ScrollProgress from "@/components/motion/ScrollProgress";
 import { site } from "@/lib/content";
 import "./globals.css";
 
@@ -66,11 +68,13 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <ScrollProgress />
         <Header />
         <main id="main" className="flex-1">
           {children}
         </main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );

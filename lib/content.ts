@@ -161,10 +161,22 @@ export const programmes = [
 /* ----------------------------------------------------------------- Impact */
 
 export const stats = [
-  { value: 300, suffix: "+", label: "Students currently active across Abuja schools" },
-  { value: 2, suffix: "", label: "Full academic terms of pilot delivery completed" },
+  {
+    value: 300,
+    suffix: "+",
+    label: "Students currently active across Abuja schools",
+  },
+  {
+    value: 2,
+    suffix: "",
+    label: "Full academic terms of pilot delivery completed",
+  },
   { value: 4, suffix: "", label: "Programme pillars delivered in the pilot" },
-  { value: 1, suffix: "", label: "Completed curriculum book — tested and print-ready" },
+  {
+    value: 1,
+    suffix: "",
+    label: "Completed curriculum book — tested and print-ready",
+  },
 ] as const;
 
 export const heroFacts = [
@@ -185,12 +197,32 @@ export type Sdg = {
 
 export const sdgs: Sdg[] = [
   { number: 4, title: "Quality Education", color: "#c5192d", tier: "Primary" },
-  { number: 8, title: "Decent Work and Economic Growth", color: "#a21942", tier: "Primary" },
+  {
+    number: 8,
+    title: "Decent Work and Economic Growth",
+    color: "#a21942",
+    tier: "Primary",
+  },
   { number: 1, title: "No Poverty", color: "#e5243b", tier: "Secondary" },
-  { number: 10, title: "Reduced Inequalities", color: "#dd1367", tier: "Secondary" },
-  { number: 17, title: "Partnerships for the Goals", color: "#19486a", tier: "Secondary" },
+  {
+    number: 10,
+    title: "Reduced Inequalities",
+    color: "#dd1367",
+    tier: "Secondary",
+  },
+  {
+    number: 17,
+    title: "Partnerships for the Goals",
+    color: "#19486a",
+    tier: "Secondary",
+  },
   { number: 5, title: "Gender Equality", color: "#ff3a21", tier: "Additional" },
-  { number: 12, title: "Responsible Consumption and Production", color: "#bf8b2e", tier: "Additional" },
+  {
+    number: 12,
+    title: "Responsible Consumption and Production",
+    color: "#bf8b2e",
+    tier: "Additional",
+  },
 ];
 
 export const sdgTiers = [

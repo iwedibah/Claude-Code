@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 
 import Reveal from "@/components/Reveal";
 import StatBand from "@/components/StatBand";
-import { LiteraciesSection, PageHero, PartnerSection } from "@/components/sections";
+import {
+  LiteraciesSection,
+  PageHero,
+  PartnerSection,
+} from "@/components/sections";
 import { Container, Section, SectionHeading } from "@/components/ui";
 import { about, stats } from "@/lib/content";
 
@@ -32,7 +36,10 @@ export default function AboutPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
             <Reveal>
-              <SectionHeading eyebrow="Our mission" title="What the club exists to do." />
+              <SectionHeading
+                eyebrow="Our mission"
+                title="What the club exists to do."
+              />
             </Reveal>
 
             <Reveal delay={120}>
