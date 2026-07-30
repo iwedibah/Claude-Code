@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Brand palette ------------------------------------------------ */
+  --color-navy-950: #061525;
+  --color-navy-900: #0a2038;
+  --color-navy-800: #0f2d4b;
+  --color-navy-700: #143c62;
+  --color-navy-600: #1b4f7e;
+  --color-navy-100: #dbe7f3;
+  --color-navy-50: #eef4fa;
+
+  --color-gold-600: #c07d19;
+  --color-gold-500: #e29a2c;
+  --color-gold-400: #f0b757;
+  --color-gold-200: #f8ddb0;
+  --color-gold-100: #fcefd9;
+
+  --color-coral-600: #c8431f;
+  --color-coral-500: #e4572e;
+  --color-coral-100: #fbe2da;
+
+  --color-teal-700: #146b5d;
+  --color-teal-600: #1a8272;
+  --color-teal-500: #22a08c;
+  --color-teal-100: #d6f0ea;
+
+  --color-cream: #fdfaf4;
+  --color-sand: #f5eee1;
+  --color-sand-dark: #e9dcc6;
+
+  /* ---- Type --------------------------------------------------------- */
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  /* ---- Motion ------------------------------------------------------- */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  --background: var(--color-cream);
+  --foreground: var(--color-navy-900);
+}
+
+html {
+  scroll-behavior: smooth;
+  /* offset for the sticky header when jumping to #anchors */
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display type: warm serif, tightened at headline sizes */
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+}
+
+/* ---- Scroll reveal ---------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.75s var(--ease-out-soft),
+    transform 0.75s var(--ease-out-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Decorative ------------------------------------------------------- */
+.dotted::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgb(255 255 255 / 0.16) 1px,
+    transparent 0
+  );
+  background-size: 22px 22px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Consistent focus ring across interactive elements */
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
