@@ -16,10 +16,16 @@ export const site = {
   handle: "@plc_global",
   location: "Abuja, Nigeria",
   url: "https://plethora-literacy-club.vercel.app",
+  /**
+   * The club's real profile URLs were not supplied with the brief. Until they
+   * are, `href` stays null and the chip renders as plain text rather than a
+   * link to a platform home page. Drop the URL in and it becomes a link — no
+   * other change needed.
+   */
   socials: [
-    { label: "Facebook", href: "https://facebook.com/" },
-    { label: "LinkedIn", href: "https://linkedin.com/" },
-    { label: "TikTok", href: "https://tiktok.com/" },
+    { label: "Facebook", href: null as string | null },
+    { label: "LinkedIn", href: null as string | null },
+    { label: "TikTok", href: null as string | null },
   ],
 } as const;
 

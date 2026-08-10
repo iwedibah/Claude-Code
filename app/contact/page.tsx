@@ -89,18 +89,26 @@ export default function ContactPage() {
                   Follow the club
                 </h3>
                 <ul className="mt-4 flex flex-wrap gap-2">
-                  {site.socials.map((social) => (
-                    <li key={social.label}>
-                      <a
-                        href={social.href}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="inline-flex rounded-full border border-navy-900/12 bg-white px-4 py-2 text-sm font-medium text-navy-800 transition hover:border-navy-900/30"
-                      >
-                        {social.label}
-                      </a>
-                    </li>
-                  ))}
+                  {site.socials.map((social) => {
+                    const chip =
+                      "inline-flex rounded-full border border-navy-900/12 bg-white px-4 py-2 text-sm font-medium text-navy-800";
+                    return (
+                      <li key={social.label}>
+                        {social.href ? (
+                          <a
+                            href={social.href}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className={`${chip} transition hover:border-navy-900/30`}
+                          >
+                            {social.label}
+                          </a>
+                        ) : (
+                          <span className={chip}>{social.label}</span>
+                        )}
+                      </li>
+                    );
+                  })}
                   <li>
                     <span className="inline-flex rounded-full border border-navy-900/12 bg-white px-4 py-2 text-sm font-medium text-navy-800">
                       {site.handle}

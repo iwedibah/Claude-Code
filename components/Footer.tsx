@@ -101,18 +101,26 @@ export default function Footer() {
             </ul>
 
             <ul className="mt-6 flex flex-wrap gap-2">
-              {site.socials.map((social) => (
-                <li key={social.label}>
-                  <a
-                    href={social.href}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="inline-flex rounded-full border border-white/15 px-3.5 py-1.5 text-xs font-medium text-navy-100/75 transition hover:border-gold-400/60 hover:text-white"
-                  >
-                    {social.label}
-                  </a>
-                </li>
-              ))}
+              {site.socials.map((social) => {
+                const chip =
+                  "inline-flex rounded-full border border-white/15 px-3.5 py-1.5 text-xs font-medium text-navy-100/75";
+                return (
+                  <li key={social.label}>
+                    {social.href ? (
+                      <a
+                        href={social.href}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className={`${chip} transition hover:border-gold-400/60 hover:text-white`}
+                      >
+                        {social.label}
+                      </a>
+                    ) : (
+                      <span className={chip}>{social.label}</span>
+                    )}
+                  </li>
+                );
+              })}
               <li>
                 <span className="inline-flex rounded-full border border-white/15 px-3.5 py-1.5 text-xs font-medium text-navy-100/75">
                   {site.handle}
